@@ -1,0 +1,200 @@
+@import "partials/mixin.scss";
+$gradientDark: #904e95;
+$gradientLight: #e96443;
+
+
+.section_head{
+    h2 {
+        background: $gradientLight;
+        background: linear-gradient(to right, $gradientLight 2%,$gradientDark 82%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.btn{
+    background-image: linear-gradient(to right, $gradientLight 0%, $gradientDark 51%, $gradientLight 100%);
+}
+
+header{
+    .navbar {
+        .navbar-collapse {
+            @include responsive(large) {
+                background: $gradientDark;
+            }
+            .navbar-nav {
+                .nav-item {
+                    &::before, &::after{
+                        background: $gradientLight;
+                    }
+                    &.active {
+                        a {
+                            @include responsive(large) {
+                                color: $gradientDark;
+                            }
+                        }
+                    }
+                    .nav-link{
+                        &::before, &::after{
+                            background: $gradientLight;
+                        }
+                    }                 
+                }
+            }
+        }
+    }
+}
+
+
+.banner_slider{
+    .slick-dots {
+        li{
+            &.slick-active{
+                &:before {
+                    background: linear-gradient(to right, $gradientLight 2%,$gradientDark 82%);
+                }
+            }
+        } 
+    } 
+}
+
+
+.about_box {
+    .about_title {
+        h6 {
+            color: $gradientLight;
+        }
+    }
+    .about_skill {
+        .about_item {
+            h5{
+                i {
+                    background: $gradientLight;
+                    background: -moz-linear-gradient(left, $gradientLight 2%, $gradientDark 82%);
+                    background: -webkit-linear-gradient(left, $gradientLight 2%,$gradientDark 82%);
+                    background: linear-gradient(to right, $gradientLight 2%,$gradientDark 82%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradientLight', endColorstr='$gradientDark',GradientType=1 );
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            } 
+        }
+    }
+}
+
+.services {
+    .service_box {
+        .service_number {
+            color: $gradientLight;
+        }
+    }
+}
+
+
+.achievement{
+    .achievement_box {
+        &:hover{
+            i {
+                color: $gradientLight;
+            }
+        } 
+    }
+}
+
+.team {
+    .team_card {
+        .team_avatar {
+            .team_overlay {
+                background: linear-gradient(to right, rgba($gradientLight, 0.6) 2%, rgba($gradientDark, 0.6) 82%);
+            } 
+        }
+    }
+}
+
+.portfolio {
+    .portfolio_head {
+        background: linear-gradient(to right, $gradientLight 2%,$gradientDark 82%);
+    }
+    .portfolio_item {
+        .portfolio_overlay {
+            background: linear-gradient(to right, rgba($gradientLight, 0.8) 2%, rgba($gradientDark, 0.8) 82%);
+        } 
+    }
+}
+
+.price_section{
+    .price_box{
+        .price_box_feature{
+            ul{
+                li{ 
+                    &:hover{
+                        border-left: 5px solid $gradientLight;
+                    }
+                }
+            } 
+        }
+        &.active, &:hover{
+            .price_box_head{
+                .price_box_head_content{
+                    .head_bg{
+                        border-color: $gradientLight rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) $gradientLight;
+                    }
+                } 
+            }
+            .price_box_btn{
+                a{
+                    background-color: $gradientLight;
+                } 
+            }  
+        } 
+    }
+} 
+
+.app_section{
+    .app_feature {
+        i {
+            background: linear-gradient(to right, $gradientLight 2%,$gradientDark 82%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradientLight', endColorstr='$gradientDark',GradientType=1 );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+.blog_section{
+    .blog_text {
+        h6 {
+            color: $gradientLight;
+        }
+    }
+}
+
+.contact_section{
+    .address_box {
+        &:before {
+            background: $gradientLight;
+            background: linear-gradient(to right, rgba($gradientLight, 0.79) 2%,rgba($gradientDark, 0.8) 82%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradientLight', endColorstr='$gradientDark',GradientType=1 );
+        }
+    }
+}
+
+.form-group {
+    .focus-border {
+        background: linear-gradient(to right, $gradientLight 2%,$gradientDark 82%) !important;
+    }
+}
+
+footer{
+    .footer_social{
+        ul {
+            li{
+                a {
+                    &:hover {
+                        background-color: $gradientLight;
+                    }
+                }
+            } 
+        }
+    } 
+}

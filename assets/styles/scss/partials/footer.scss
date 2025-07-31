@@ -1,0 +1,37 @@
+footer{
+	.footer_social{
+		ul {
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    margin: 0;
+		    li{
+		    	a {
+				    display: block;
+				    width: 45px;
+				    color: $VerydarkGray;
+				    height: 45px;
+				    text-align: center;
+				    line-height: 45px;
+				    border-radius: 50px;
+				    font-size: 17px;
+				    margin: 10px 5px;
+				    border: 1px solid transparent;
+				    transition: background-color .2s ease-in-out;
+				    &:hover {
+					    background-color: $gradientLight;
+					    color: $white;
+					}
+				}
+		    } 
+		}
+	} 
+	.company_about {
+	    font-size: 13px;
+	    text-align: center;
+	    font-weight: 500;
+	    a {
+		    color: $paragraphColor;
+		}
+	}
+}

@@ -1,0 +1,279 @@
+header{
+	.navbar {
+	    position: absolute;
+	    top: 0;
+	    z-index: 99;
+	    overflow: hidden;
+	    height: 90px;
+	    width: 100%;
+	    transition: all .1s ease;
+	    @include responsive(large) {
+	        overflow: visible;
+	    	z-index: 99999;
+		}
+	    .navbar-brand {
+		    position: absolute;
+		    padding: 0;
+		    margin: 0;
+		    left: 50%;
+		    margin-top: -22px;
+		    top: 50%;
+		    text-align: center;
+		    transform: translateX(-50%);
+		    z-index: 1;
+		    display: inline-block;
+		    vertical-align: middle;
+		    line-height: 0;
+		    @include responsive(large) {
+		        position: relative;
+			    margin: 0;
+			    transform: none;
+			    left: 0;
+			    top: 0;
+			}
+		    img {
+			    max-width: 220px;
+			    @include responsive(msmall) {
+				    max-width: 120px;
+				}
+			}
+		    .sticky_logo{
+		    	display: none;
+		    }
+		}
+		.navbar-collapse {
+		    width: 100%;
+		    justify-content: center;
+		    @include responsive(large) {
+		        display: block !important;
+			    position: fixed;
+			    right: -100%;
+			    top: 0;
+			    z-index: 99999;
+			    background: $BrightRed;
+			    max-width: 360px;
+			    width: 100%;
+			    height: 100%;
+			    transition: all 0.5s ease;
+			}
+		    .navbar-nav {
+		    	width: 100%;
+		    	@include responsive(large) {
+			        display: block;
+			    	padding: 80px 40px 50px 20px;
+			    	height: 100vh;
+    				overflow: auto;
+				}
+		    	.nav-item {
+				    color: $white;
+				    font-weight: 400;
+				    padding: 0.4rem 1.5rem;
+				    margin-left: .5rem;
+				    position: relative;
+				    @include responsive(large) {
+				        margin: auto;
+				        word-break: break-all;
+					}
+				    &:nth-child(5) {
+					    margin-left: auto;
+					}
+					&::before, &::after{
+				        content:"";
+				        width: 0;
+				        height: 3px;
+				        position: absolute;
+				        transition: all 0.2s linear;
+				        transition-delay: 0.2s;
+				        background: $gradientLight;
+				        @include responsive(large) {
+					       	display: none;
+						}
+				    }
+				    &::before{
+				        right: 0;
+				        top: 0;
+				    }
+				    &::after{
+				        left: 0;
+				        bottom: 0;
+				    }
+				    .nav-link{
+				    	padding: 0;
+					    color: inherit;
+				        &::before, &::after{
+				            content:"";
+				            width:3px;
+				            height:0;
+				            position: absolute;
+				            transition: all 0.2s linear;
+				            transition-delay: 0s;
+				            background: $gradientLight;
+				            @include responsive(large) {
+						       	display: none;
+							}
+				        }
+				        &::before{
+				            left: 0;
+				            top: 0;
+				        }
+				        &::after{
+				            right: 0;
+				            bottom: 0;
+				        }
+				    }
+				    &.active{
+				        color: $white;
+				        font-weight: 400;
+				    	@include responsive(large) {
+					        background: $white;
+							a{
+								color: $BrightRed;
+							}
+					    }
+				        &::before, &::after{
+				            width: 100%;
+				            transition-delay: 0s;
+				        }
+				        .nav-link{
+				            &::before, &::after{
+				                height: 99%;
+				                transition-delay: 0.2s;
+				            }
+				        }
+				    }				    
+				}
+		    }
+		    .menuToggle {
+			    position: absolute;
+			    top: 20px;
+			    right: 20px;
+			}
+		}
+	}
+	&.sticky_header{
+		.navbar{
+			height: 70px;
+		    position: fixed;
+		    z-index: 999;
+		    background: $white;
+		    animation-name: animationFade;
+		    animation-duration: 1s;
+		    animation-fill-mode: both;
+		    box-shadow: 0 10px 10px -10px rgba($black, 0.35);
+			.navbar-brand {
+				img{
+					display: none;
+				}
+			    .sticky_logo{
+			    	display: block;
+			    }
+			}
+			.navbar-collapse{
+				.menuToggle{
+					span {
+					    background: $white;
+					}
+				} 
+				.navbar-nav{
+					.nav-item {
+					    color: $black;
+					    @include responsive(large) {
+					        color: $white;
+						}
+					}
+				} 
+			} 
+			.menuToggle{
+				span {
+				    background: $black;
+				}
+			} 
+		} 
+	} 
+	.menuToggle{
+	  	width: 40px;
+	    height: 30px;
+	  	position: relative;
+	  	margin-left: auto;
+	  	transform: rotate(0deg);
+	  	transition: .5s ease-in-out;
+	  	cursor: pointer;
+	  	display: none;
+	  	@include responsive(large) {
+	        display: block;
+		}
+		@include responsive(msmall) {
+		    width: 35px;
+    		height: 22px;
+		}
+	  	span {
+		  	display: block;
+		  	position: absolute;
+		  	height: 4px;
+		  	width: 100%;
+		  	background: $white;
+		  	opacity: 1;
+		  	left: 0;
+		  	transform: rotate(0deg);
+		  	transition: .25s ease-in-out;
+		  	@include responsive(msmall) {
+			    height: 2px;
+			}
+			&:nth-child(1) {
+			  	top: 0px;
+			}
+			&:nth-child(2) {
+			 	top: 13px;
+			 	@include responsive(msmall) {
+				    top: 10px;
+				}
+			}
+			&:nth-child(3) {
+			  	top: 26px;
+			  	@include responsive(msmall) {
+				    top: 20px;
+				}
+			}
+		}	
+	}
+	.overlay {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba($black, 0.3);
+	    z-index: 999;
+	    cursor: pointer;
+	    opacity: 0;
+	    display: none;
+	    transition: all 0.5s ease;
+	}
+	&.open{
+		.menuToggle{
+			span{
+				&:nth-child(1) {
+				  	top: 13px;
+				  	transform: rotate(135deg);
+				}
+				&:nth-child(2) {
+				  	opacity: 0;
+				  	left: -60px;
+				}
+				&:nth-child(3) {
+				  	top: 13px;
+				  	transform: rotate(-135deg);
+				}
+			}
+		}
+		.overlay {
+		    opacity: 1;
+		    display: block;
+		}	
+		.navbar{
+			.navbar-collapse {
+			    right: 0;
+			}
+		} 	
+	}
+}
